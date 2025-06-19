@@ -1,30 +1,21 @@
-<div id="banner" style="display:none; background:#fffae6; padding:10px; border:1px solid #ccc;">
-  🎉 Congrats! You traded over $300 on Rarible! Check special offers!
-</div>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>🌹 RoseCoin NFT</title>
+</head>
+<body style="text-align: center; font-family: sans-serif; background-color: #fff0f5;">
+  <h1>🌟 VIP限定NFT：RoseCoin 🌟</h1>
+  <p>このNFTは高額コレクター向けに販売中です✨<br>下のウィンドウから直接購入できます！</p>
 
-<script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script>
-<script>
-  async function showBannerIfEligible() {
-    if (!window.ethereum) return;
+  <iframe 
+    src="https://rarible.com/token/ETHEREUM:0xdbf24b7b9182f183fe6e6bf1325be2ae41f1393e:21269214860897579696216278236539693614134200511802301932789803256963106078766?tab=buy"
+    width="100%"
+    height="600"
+    style="border: none; max-width: 900px; margin: auto; display: block;"
+  ></iframe>
 
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    await provider.send("eth_requestAccounts", []);
-    const signer = provider.getSigner();
-    const address = await signer.getAddress();
-
-    // Rarible APIで取引情報を取得（簡略化）
-    const res = await fetch(`https://api.rarible.org/v0.1/orders/byUser?user=ETHEREUM:${address}`);
-    const data = await res.json();
-
-    let totalUsd = 0;
-    (data.orders || []).forEach(order => {
-      totalUsd += parseFloat(order.makePriceUsd || 0);
-    });
-
-    if (totalUsd > 300) {
-      document.getElementById("banner").style.display = "block";
-    }
-  }
-
-  showBannerIfEligible();
-</script>
+  <p style="margin-top: 2rem;">🛒 価格：0.025 ETH / 限定500枚発行</p>
+  <p>🌐 <a href="https://rarible.com/magnyon" target="_blank">Raribleプロフィールを見る</a></p>
+</body>
+</html>
