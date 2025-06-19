@@ -1,29 +1,34 @@
 def generate_pages(wallet_address):
-    # 共通マーケットページ
+    # 共通マーケットページ（全体用）
     general_html = f"""
     <!DOCTYPE html>
     <html lang="ja">
     <head><meta charset="UTF-8"><title>RoseCoin | あなたのNFTマーケット</title></head>
     <body style="text-align:center;font-family:sans-serif;">
       <h1>🌹 RoseCoin NFT マーケット</h1>
-      <iframe src="https://rarible.com/cbdap?tab=created" width="100%" height="600" style="border:none;max-width:900px;"></iframe>
-      <p><a href="https://rarible.com/token/0xdbf24...78766" target="_blank">RoseCoinを購入する</a></p>
+      <iframe src="https://rarible.com/cbdap?tab=created"
+              width="100%" height="600"
+              style="border:none;max-width:900px;"></iframe>
+      <p><a href="https://rarible.com/token/0xdbf24b7b9182f183fe6e6bf1325be2ae41f1393e:21269214860897579696216278236539693614134200511802301932789803256963106078766"
+            target="_blank">RoseCoinを購入する</a></p>
     </body>
     </html>
     """
 
-    # ← rosecoin.html → rosecoin_all.html に変更！
+    # ファイル名を rosecoin_all.html に変更
     with open("rosecoin_all.html", "w", encoding="utf-8") as f:
         f.write(general_html)
 
-    # VIPページ（各ウォレットの閲覧用）
+    # VIP専用ページ（ウォレットごと）
     vip_html = f"""
     <!DOCTYPE html>
     <html lang="ja">
     <head><meta charset="UTF-8"><title>VIP | {wallet_address}</title></head>
     <body style="text-align:center;font-family:sans-serif;">
       <h1>🌟 {wallet_address} 様専用マーケット</h1>
-      <iframe src="https://rarible.com/user/{wallet_address}?tab=created" width="100%" height="600" style="border:none;max-width:900px;"></iframe>
+      <iframe src="https://rarible.com/user/{wallet_address}?tab=created"
+              width="100%" height="600"
+              style="border:none;max-width:900px;"></iframe>
       <p><a href="https://rarible.com/cbdap" target="_blank">🌹 RoseCoin 全体マーケットを見る</a></p>
     </body>
     </html>
